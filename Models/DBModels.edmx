@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MyTripsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MyTripsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Trip">
           <Key>
             <PropertyRef Name="Id" />
@@ -13,7 +13,7 @@
           <Property Name="Name" Type="varchar" MaxLength="50" />
           <Property Name="Destination" Type="varchar" MaxLength="50" />
           <Property Name="Year" Type="int" />
-          <Property Name="Month" Type="nchar" MaxLength="10" />
+          <Property Name="Month" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="MyTripsModelStoreContainer">
           <EntitySet Name="Trip" EntityType="Self.Trip" Schema="dbo" store:Type="Tables" />
@@ -31,9 +31,9 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Destination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Year" Type="Int32" />
-          <Property Name="Month" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Month" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="DBModel" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DBModel1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Trips" EntityType="Self.Trip" />
         </EntityContainer>
       </Schema>
@@ -41,7 +41,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MyTripsModelStoreContainer" CdmEntityContainer="DBModel">
+        <EntityContainerMapping StorageEntityContainer="MyTripsModelStoreContainer" CdmEntityContainer="DBModel1">
           <EntitySetMapping Name="Trips">
             <EntityTypeMapping TypeName="MyTripsModel.Trip">
               <MappingFragment StoreEntitySet="Trip">

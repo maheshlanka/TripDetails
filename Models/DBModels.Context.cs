@@ -13,10 +13,10 @@ namespace MyTrips.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DBModel : DbContext
+    public partial class DBModel1 : DbContext
     {
-        public DBModel()
-            : base("name=DBModel")
+        public DBModel1()
+            : base("name=DBModel1")
         {
         }
     

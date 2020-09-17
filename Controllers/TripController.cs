@@ -17,7 +17,7 @@ namespace MyTrips.Controllers
         }
         public ActionResult GetData()
         {
-            using(DBModel db = new DBModel())
+            using(DBModel1 db = new DBModel1())
             {
                 List<Trip> tripList = db.Trips.ToList<Trip>();
                 return Json(new {data = tripList}, JsonRequestBehavior.AllowGet); 
@@ -33,7 +33,7 @@ namespace MyTrips.Controllers
             }
             else
             {
-                using (DBModel db = new DBModel())
+                using (DBModel1 db = new DBModel1())
                 {
                     return View(db.Trips.Where(x => x.Id==id).FirstOrDefault<Trip>());
                 }
@@ -43,7 +43,7 @@ namespace MyTrips.Controllers
         [HttpPost]
         public ActionResult AddorEdit(Trip trp)
         {
-            using (DBModel db = new DBModel())
+            using (DBModel1 db = new DBModel1())
             {
                 if(trp.Id ==0)
                 {
@@ -65,7 +65,7 @@ namespace MyTrips.Controllers
         [HttpPost]
         public ActionResult Delete(int id )
         {
-            using (DBModel db = new DBModel())
+            using (DBModel1 db = new DBModel1())
             {
                 Trip trp = db.Trips.Where(x => x.Id == id).FirstOrDefault<Trip>();
                 db.Trips.Remove(trp);

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="44655b01ce9241409a8994d363c7aa25" Name="Diagram1">
+      <Diagram DiagramId="f94515d9113b44b0a9867ea9e8664602" Name="Diagram1">
         <EntityTypeShape EntityType="MyTripsModel.Trip" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>

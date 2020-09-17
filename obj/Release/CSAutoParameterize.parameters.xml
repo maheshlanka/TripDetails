@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DBModel-Web.config Connection String" description="DBModel Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.DBModels.csdl|res://*/Models.DBModels.ssdl|res://*/Models.DBModels.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=MAHESHLANKA;initial catalog=MyTrips;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\Dot\.Net\\Workspace\\MyTrips\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DBModel']/@connectionString" />
+  </parameter>
+  <parameter name="MyTripsEntities-Web.config Connection String" description="MyTripsEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=mytrips.database.windows.net;initial catalog=MyTrips;persist security info=True;user id=mvcdemo;password=chandu@2719;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\Dot\.Net\\Workspace\\MyTrips\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MyTripsEntities']/@connectionString" />
+  </parameter>
+  <parameter name="DBModel1-Web.config Connection String" description="DBModel1 Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.DBModels.csdl|res://*/Models.DBModels.ssdl|res://*/Models.DBModels.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=mytrips.database.windows.net;initial catalog=MyTrips;persist security info=True;user id=mvcdemo;password=chandu@2719;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\Dot\.Net\\Workspace\\MyTrips\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DBModel1']/@connectionString" />
+  </parameter>
+</parameters>

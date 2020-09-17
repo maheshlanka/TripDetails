@@ -50,7 +50,6 @@ E:\Dot.Net\Workspace\MyTrips\bin\System.Web.Webpages.Deployment.xml
 E:\Dot.Net\Workspace\MyTrips\bin\System.Web.Webpages.Razor.xml
 E:\Dot.Net\Workspace\MyTrips\bin\System.Web.Helpers.xml
 E:\Dot.Net\Workspace\MyTrips\bin\System.Web.Mvc.xml
-E:\Dot.Net\Workspace\MyTrips\obj\Debug\MyTrips.csprojAssemblyReference.cache
 E:\Dot.Net\Workspace\MyTrips\obj\Debug\MyTrips.csproj.CoreCompileInputs.cache
 E:\Dot.Net\Workspace\MyTrips\obj\Debug\MyTrips.csproj.CopyComplete
 E:\Dot.Net\Workspace\MyTrips\obj\Debug\MyTrips.dll

@@ -8,9 +8,9 @@
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Destination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Year" Type="Int32" />
-    <Property Name="Month" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Month" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityContainer Name="DBModel" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="DBModel1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Trips" EntityType="Self.Trip" />
   </EntityContainer>
 </Schema>

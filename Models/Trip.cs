@@ -11,14 +11,11 @@ namespace MyTrips.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Trip
     {
         public int Id { get; set; }
-        [Required(ErrorMessage ="This Field is Mandatory to fill")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "This Field is Mandatory to fill")]
         public string Destination { get; set; }
         public Nullable<int> Year { get; set; }
         public string Month { get; set; }

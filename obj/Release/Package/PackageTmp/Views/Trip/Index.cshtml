@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "Trip List";
+}
+
+<h2>Trip CRUD Operations</h2>
+
+<a class="btn  btn-success" style="margin-bottom:10px" onclick="PopupForm('@Url.Action("AddorEdit","Trip")')"><i class="fa fa-plus"></i> Add New</a>
+<table id="tripTable" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Destination</th>
+            <th>Year</th>
+            <th>Month</th>
+            <th></th>
+        </tr>
+    </thead>
+</table>
+
+<link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+@section scripts{
+    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script>
+        var Popup, dataTable;
+        $(document).ready(function () {
+            dataTable =  $("#tripTable").DataTable({
+                "ajax": {
+                    "url": "/Trip/GetData",
+                    "type": "GET"
+                },
+                "columns": [
+                    { "data": "Name" },
+                    { "data": "Destination" },
+                    { "data": "Year" },
+                    { "data": "Month" },
+                    {
+                        "data": "Id", "render": function (data) {
+                            return "<a class='btn btn-default btn-sm' onclick=PopupForm('@Url.Action("AddorEdit","Trip")/" + data + "')><i class='fa fa - pencil'></i> Edit</a><a class='btn btn-danger btn-sm' style='margin-left: 5px' onclick=Delete("+data+")><i class='fa fa - trash'></i> Delete</a>"
+                        },
+                        "orderable": false,
+                        "searchable" : false,
+                        "width":"150px"
+                    }
+                ],
+                "language": {
+                    "emptyTable" : "No data found, Please click on <b> Add New </b> Button"
+                }
+            });
+        });
+        function PopupForm(url) {
+            var formDiv = $('<div/>');
+            $.get(url)
+                .done(function (response) {
+                    formDiv.html(response);
+
+                    Popup = formDiv.dialog({
+                        autoOpen: true,
+                        resizable: false,
+                        title :'Fill Trip Details',
+                        height: 500,
+                        width: 700,
+                        close: function () {
+                            Popup.dialog('destroy').remove();
+                        }
+
+                    });
+                });
+        }
+        function SubmitForm(form) {
+            $.validator.unobtrusive.parse(form);
+            if ($(form).valid()) {
+                $.ajax({
+                    type: "POST",
+                    url: form.action,
+                    data: $(form).serialize(),
+                    success: function (data) {
+                        if (data.success) {
+
+                            Popup.dialog('close');
+                            dataTable.ajax.reload();
+
+                            $.notify(data.message, {
+                                globalPosition: "top center",
+                                className: "success"
+                            });
+                        }
+                    }
+                });
+
+            }
+            return false;
+        }
+        function Delete(id) {
+            if (confirm('Are You Sure To Delete?')) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Delete","Trip")/' + id,
+                    success: function (data) {
+                        if (data.success) {
+                            dataTable.ajax.reload();
+
+                            $.notify(data.message, {
+                                globalPosition: "top center",
+                                className: "success"
+                            })
+                            }
+                    }
+                    });
+            }
+
+        }
+    </script>
+}

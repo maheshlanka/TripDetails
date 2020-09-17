@@ -1,0 +1,34 @@
+﻿@model MyTrips.Models.Trip
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("AddorEdit","Trip",FormMethod.Post, new { onSubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.Id)
+<div class="form-group">
+    @Html.LabelFor(model => model.Name, new { @class = "control-label" })
+    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @Class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.Name)
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Destination, new { @class = "control-label" })
+    @Html.EditorFor(model => model.Destination, new { htmlAttributes = new { @Class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.Destination)
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Year, new { @class = "control-label" })
+    @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @Class = "form-control" } })
+
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Month, new { @class = "control-label" })
+    @Html.EditorFor(model => model.Month, new { htmlAttributes = new { @Class = "form-control" } })
+
+</div>
+<div class="form-group">
+    <input type="submit" value="Submit" class="btn btn-primary" />
+    <input type="reset" value="Reset" class="btn btn-primary" />
+</div>
+
+}
